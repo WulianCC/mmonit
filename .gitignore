@@ -6,6 +6,7 @@ coverage/
 .sass-cache/
 temp/
 demo/
+dist/
 
 *.css.map
 *.log
