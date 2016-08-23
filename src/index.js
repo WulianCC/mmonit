@@ -26,12 +26,11 @@ const init = (options, form) => {
     z_csrf_protection: 'off'
   };
   const deferred = getDefer();
-  req.get({url: opt.host, jar: j, rejectUnauthorized: false}, () => {
+  req.get({url: opt.host, jar: j}, () => {
     req.post({
       url: `${opt.host}z_security_check`,
       form: credentials,
-      jar: j,
-      rejectUnauthorized: false
+      jar: j
     }, (err) => {
       if (err) {
         throw err;
@@ -39,8 +38,7 @@ const init = (options, form) => {
       req.post({
         url: `${opt.host}reports/events/list`,
         form,
-        jar: j,
-        rejectUnauthorized: false
+        jar: j
       }, (errr, res) => {
         if (errr) {
           deferred.reject(errr);
